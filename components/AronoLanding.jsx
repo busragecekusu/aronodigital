@@ -82,14 +82,14 @@ export default function AronoLanding() {
           <div className="absolute bottom-32 left-[40%] h-2 w-2 rounded-full bg-[#0EA5E9] animate-[float_8.5s_ease-in-out_infinite]"/>
           
           {/* Floating tech tags - responsive positioning */}
-          {/* TypeScript - top right on all screens */}
-          <div className="absolute top-[5%] right-[5%] lg:top-[8%] lg:right-[35%] text-xs lg:text-sm font-bold text-[#0EA5E9]/40 lg:text-[#0EA5E9]/50 animate-[float_7.5s_ease-in-out_infinite] backdrop-blur-sm px-2 py-1 lg:px-2.5 lg:py-1.5 rounded border border-[#0EA5E9]/20 lg:border-[#0EA5E9]/30 bg-[#0EA5E9]/5 lg:bg-[#0EA5E9]/10 z-10">TS</div>
-          {/* HTML - middle right on desktop, hidden on mobile */}
-          <div className="hidden lg:block absolute top-[40%] right-[8%] text-sm font-bold text-[#64748B]/50 animate-[float_8s_ease-in-out_infinite] backdrop-blur-sm px-2.5 py-1.5 rounded-md border border-[#64748B]/30 bg-[#64748B]/10 z-10">&lt;HTML/&gt;</div>
-          {/* CSS - left side on desktop, bottom left on mobile */}
-          <div className="absolute bottom-[3%] left-[5%] lg:top-[25%] lg:bottom-auto lg:right-[52%] lg:left-auto text-xs lg:text-sm font-bold text-[#94A3B8]/40 lg:text-[#94A3B8]/50 animate-[float_6.5s_ease-in-out_infinite] backdrop-blur-sm px-2 py-1 lg:px-2.5 lg:py-1.5 rounded border border-[#94A3B8]/20 lg:border-[#94A3B8]/30 bg-[#94A3B8]/5 lg:bg-[#94A3B8]/10 z-10">{'{CSS}'}</div>
-          {/* AWS - bottom center on desktop, hidden on mobile */}
-          <div className="hidden lg:block absolute bottom-[15%] right-[42%] text-sm font-bold text-[#0EA5E9]/50 animate-[float_7s_ease-in-out_infinite] backdrop-blur-sm px-2.5 py-1.5 rounded-md border border-[#0EA5E9]/30 bg-[#0EA5E9]/10 z-10">AWS</div>
+          {/* TS - top right */}
+          <div className="absolute top-[8%] right-[8%] lg:top-[8%] lg:right-[35%] text-xs lg:text-sm font-bold text-[#0EA5E9]/50 animate-[float_7.5s_ease-in-out_infinite] backdrop-blur-sm px-2 py-1 lg:px-2.5 lg:py-1.5 rounded border border-[#0EA5E9]/30 bg-[#0EA5E9]/10">TS</div>
+          {/* HTML - middle right on desktop only */}
+          <div className="hidden lg:block absolute top-[40%] right-[8%] text-sm font-bold text-[#64748B]/50 animate-[float_8s_ease-in-out_infinite] backdrop-blur-sm px-2.5 py-1.5 rounded-md border border-[#64748B]/30 bg-[#64748B]/10">&lt;HTML/&gt;</div>
+          {/* CSS - bottom left, below stats */}
+          <div className="absolute bottom-[2%] left-[5%] lg:top-[25%] lg:bottom-auto lg:right-[52%] lg:left-auto text-xs lg:text-sm font-bold text-[#94A3B8]/50 animate-[float_6.5s_ease-in-out_infinite] backdrop-blur-sm px-2 py-1 lg:px-2.5 lg:py-1.5 rounded border border-[#94A3B8]/30 bg-[#94A3B8]/10">{'{CSS}'}</div>
+          {/* AWS - bottom center on desktop only */}
+          <div className="hidden lg:block absolute bottom-[15%] right-[42%] text-sm font-bold text-[#0EA5E9]/50 animate-[float_7s_ease-in-out_infinite] backdrop-blur-sm px-2.5 py-1.5 rounded-md border border-[#0EA5E9]/30 bg-[#0EA5E9]/10">AWS</div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -123,7 +123,7 @@ export default function AronoLanding() {
             </div>
 
             {/* Quick stats */}
-            <div className="flex flex-wrap gap-4 pt-2 animate-[fadeIn_1.4s_ease-out]">
+            <div className="grid grid-cols-3 gap-3 pt-2 animate-[fadeIn_1.4s_ease-out]">
               <StatCard end={15} label="Proje" color="#64748B" gradient="from-[#64748B]/20 to-[#475569]/20" />
               <StatCard end={12} label="Müşteri" color="#0EA5E9" gradient="from-[#0EA5E9]/20 to-[#64748B]/20" />
               <StatCard end={3} label="Yıl" color="#94A3B8" gradient="from-[#94A3B8]/20 to-[#0EA5E9]/20" />
@@ -546,13 +546,13 @@ function StatCard({ end, label, color, gradient }) {
   }, [isVisible, end]);
 
   return (
-    <div ref={ref} className="flex items-center gap-2.5">
-      <div className={`h-12 w-12 rounded-xl bg-gradient-to-br ${gradient} border border-white/10 flex items-center justify-center`}>
-        <span className="text-xl font-bold" style={{ color }}>
+    <div ref={ref} className="flex flex-col items-center gap-2 text-center">
+      <div className={`h-12 w-12 md:h-14 md:w-14 rounded-xl bg-gradient-to-br ${gradient} border border-white/10 flex items-center justify-center`}>
+        <span className="text-lg md:text-xl font-bold" style={{ color }}>
           {count}+
         </span>
       </div>
-      <span className="text-sm text-zinc-400 font-medium">{label}</span>
+      <span className="text-xs md:text-sm text-zinc-400 font-medium">{label}</span>
     </div>
   );
 }
