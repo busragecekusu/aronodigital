@@ -160,3 +160,6 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 >>>>>>> a359911400ce8dd7d5915a311ca3577457dca6b5
+
+# Quote data
+data/

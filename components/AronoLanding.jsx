@@ -4,6 +4,16 @@ import { useState, useEffect, useRef } from 'react';
 import AronoLogo from './AronoLogo';
 
 export default function AronoLanding() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   const scrollToSection = (sectionId) => {
     if (sectionId === 'top') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -19,6 +29,48 @@ export default function AronoLanding() {
           behavior: 'smooth'
         });
       }
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/quote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setShowModal(true);
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        alert(data.message || 'Bir hata oluştu. Lütfen tekrar deneyin.');
+      }
+    } catch (error) {
+      alert('Bağlantı hatası. Lütfen tekrar deneyin.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -354,39 +406,59 @@ export default function AronoLanding() {
 
             {/* Right side - Form */}
             <div className="relative">
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
                   <input 
                     className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-[#0EA5E9]/50 transition" 
                     placeholder="Adınız"
                     type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    required
                   />
                   <input 
                     className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-[#0EA5E9]/50 transition" 
                     placeholder="Soyadınız"
                     type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    required
                   />
                 </div>
                 <input 
                   className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-[#0EA5E9]/50 transition" 
                   placeholder="E-posta Adresiniz"
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
                 />
                 <input 
                   className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-[#0EA5E9]/50 transition" 
                   placeholder="Telefon / WhatsApp"
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  required
                 />
                 <textarea 
                   className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-[#0EA5E9]/50 transition resize-none" 
                   rows={5} 
                   placeholder="Projenizden bahsedin... Ne yapmak istiyorsunuz?"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                 />
                 <button 
                   type="submit"
-                  className="w-full rounded-xl px-6 py-4 text-base font-bold bg-gradient-to-r from-[#64748B] to-[#475569] hover:from-[#0EA5E9] hover:to-[#0284C7] transition-all shadow-2xl hover:shadow-[#0EA5E9]/40 hover:scale-[1.02]"
+                  disabled={isSubmitting}
+                  className="w-full rounded-xl px-6 py-4 text-base font-bold bg-gradient-to-r from-[#64748B] to-[#475569] hover:from-[#0EA5E9] hover:to-[#0284C7] transition-all shadow-2xl hover:shadow-[#0EA5E9]/40 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  Ücretsiz Teklif Al →
+                  {isSubmitting ? 'Gönderiliyor...' : 'Ücretsiz Teklif Al →'}
                 </button>
               </form>
               
@@ -397,6 +469,38 @@ export default function AronoLanding() {
           </div>
         </div>
       </section>
+
+      {/* Success Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-[fadeIn_0.3s_ease-out]">
+          <div className="relative bg-[#0B1026] border border-white/10 rounded-2xl p-8 max-w-md w-full shadow-2xl animate-[slideUp_0.3s_ease-out]">
+            {/* Success Icon */}
+            <div className="flex justify-center mb-6">
+              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/30 flex items-center justify-center">
+                <svg className="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Content */}
+            <h3 className="text-2xl font-bold text-white text-center mb-3">
+              Talebiniz Alındı!
+            </h3>
+            <p className="text-zinc-400 text-center mb-6">
+              Teklif talebiniz başarıyla kaydedildi. En kısa sürede size dönüş yapacağız.
+            </p>
+
+            {/* Close Button */}
+            <button
+              onClick={() => setShowModal(false)}
+              className="w-full rounded-xl px-6 py-3 text-base font-bold bg-gradient-to-r from-[#64748B] to-[#475569] hover:from-[#0EA5E9] hover:to-[#0284C7] transition-all shadow-xl hover:shadow-[#0EA5E9]/40"
+            >
+              Tamam
+            </button>
+          </div>
+        </div>
+      )}
 
       <footer className="relative z-10 max-w-7xl mx-auto px-6 py-12 border-t border-white/10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
