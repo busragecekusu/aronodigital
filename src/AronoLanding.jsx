@@ -279,44 +279,94 @@ export default function AronoLanding() {
 
       {/* Portfolio */}
       <section id="portfolio" className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-12 md:pb-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-zinc-200">Canlıdaki Projelerimiz</h2>
-          <p className="mt-3 text-base text-zinc-400 max-w-2xl mx-auto">
-            Gerçek kullanıcılara hizmet veren, production ortamında çalışan projelerimizden örnekler
+        <div className="text-center mb-14">
+          <span className="inline-block text-xs font-semibold tracking-widest text-[#0EA5E9] uppercase mb-3 px-3 py-1 rounded-full border border-[#0EA5E9]/20 bg-[#0EA5E9]/5">Referanslar</span>
+          <h2 className="text-3xl md:text-5xl font-black text-white">Tamamladığımız <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#64748B] to-[#0EA5E9]">Projeler</span></h2>
+          <p className="mt-4 text-base text-zinc-400 max-w-2xl mx-auto">
+            Farklı sektörlerde teslim ettiğimiz, gerçek kullanıcılara hizmet veren projelerden seçkiler
           </p>
         </div>
-        
-        <div className="space-y-10">
-          <ProjectShowcase 
-            title="Emlak Platformu" 
-            desc="Büyük ölçekli gayrimenkul platformu. Harita entegrasyonu, gelişmiş filtreleme, favoriler ve anlık bildirimler. Yüksek performanslı arama altyapısı ile binlerce ilanı saniyeler içinde sıralama."
-            features={["5000+ İlan", "Harita API", "Admin Panel"]}
-            image="/emlak.png"
-            objectFit="contain"
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>}
+            color="#0EA5E9"
+            category="Gayrimenkul"
+            title="Emlak Platformu"
+            desc="Harita entegrasyonu, gelişmiş filtreleme ve anlık bildirimler. 5000+ ilan, yüksek performanslı arama altyapısı."
+            tags={["5000+ İlan", "Harita API", "Admin Panel", "Next.js"]}
           />
-          
-          <ProjectShowcase 
-            title="Balıkçı Mobil Uygulaması" 
-            desc="Konum tabanlı mobil uygulama. Hava durumu, deniz koşulları ve balık türü önerileri. Gerçek zamanlı API entegrasyonları ve offline mod ile kesintisiz kullanım deneyimi."
-            features={["1000+ İndirme", "Offline Mod", "Push Bildiri"]}
-            image="/oceyra.png"
-            objectPosition="55% center"
-            reverse
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>}
+            color="#64748B"
+            category="Mobil Uygulama"
+            title="Balıkçı Uygulaması"
+            desc="Konum tabanlı mobil uygulama. Hava durumu, deniz koşulları ve balık türü önerileri. Offline mod desteği."
+            tags={["1000+ İndirme", "React Native", "Offline Mod", "Push Bildiri"]}
           />
-          
-          <ProjectShowcase 
-            title="Sesli Sohbet Platformu" 
-            desc="Gerçek zamanlı sesli iletişim platformu. WebRTC ve WebSocket altyapısı ile düşük gecikmeli ses aktarımı. Moderasyon araçları, oda yönetimi ve bulut tabanlı kayıt sistemi."
-            features={["Düşük Gecikme", "Moderasyon", "Kayıt Sistemi"]}
-            image="/projects/voice-chat.jpg"
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>}
+            color="#8B5CF6"
+            category="İletişim"
+            title="Sesli Sohbet Platformu"
+            desc="WebRTC altyapısı ile düşük gecikmeli gerçek zamanlı sesli iletişim. Oda yönetimi, moderasyon ve bulut kayıt sistemi."
+            tags={["WebRTC", "WebSocket", "Düşük Gecikme", "Kayıt Sistemi"]}
           />
-          
-          <ProjectShowcase 
-            title="E-Ticaret Sistemi" 
-            desc="Tam donanımlı e-ticaret platformu. Ürün varyantları, stok yönetimi, ödeme entegrasyonu. Admin panelinde canlı satış analitiği, müşteri segmentasyonu ve sipariş takip sistemi."
-            features={["Ödeme API", "Stok Takip", "Analitik"]}
-            image="/projects/ecommerce.jpg"
-            reverse
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>}
+            color="#EC4899"
+            category="İletişim"
+            title="Görüntülü Sohbet Uygulaması"
+            desc="HD kalitesinde görüntülü konferans. Bireysel ve grup görüşmeler, ekran paylaşımı, sohbet geçmişi ve dosya transferi."
+            tags={["WebRTC Video", "Grup Çağrı", "Ekran Paylaşımı", "React Native"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>}
+            color="#F59E0B"
+            category="Lojistik"
+            title="Lojistik Yönetim Sistemi"
+            desc="Kargo takibi, filo yönetimi ve rota optimizasyonu. Gerçek zamanlı araç konumları, teslimat planlaması ve müşteri bildirimleri."
+            tags={["Filo Takip", "Rota Optimizasyonu", "Gerçek Zamanlı", "Admin Panel"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+            color="#10B981"
+            category="Uluslararası"
+            title="Yurt Dışı Operasyon Platformu"
+            desc="Gümrük süreçleri, uluslararası kargo takibi ve döviz bazlı faturalama. Çok dilli arayüz, ülke bazlı vergi hesaplama."
+            tags={["Çok Dilli", "Gümrük Entegrasyon", "Döviz API", "B2B"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>}
+            color="#F97316"
+            category="Sosyal Medya"
+            title="Sosyal Fotoğraf Uygulaması"
+            desc="Instagram tarzı fotoğraf paylaşım platformu. Hikayeler, keşfet akışı, DM sistemi, canlı yayın ve etkileşim analitiği."
+            tags={["Hikayeler", "Canlı Yayın", "DM Sistemi", "React Native"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>}
+            color="#6366F1"
+            category="E-Ticaret"
+            title="E-Ticaret Sistemi"
+            desc="Tam donanımlı e-ticaret platformu. Ürün varyantları, stok yönetimi, ödeme entegrasyonu ve canlı satış analitiği."
+            tags={["Ödeme API", "Stok Takip", "Analitik", "Next.js"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>}
+            color="#0EA5E9"
+            category="Kurumsal Web"
+            title="Kurumsal Web Sitesi"
+            desc="SEO optimize, çok dilli kurumsal web sitesi. Blog, ürün kataloğu, canlı destek entegrasyonu ve yönetim paneli dahil."
+            tags={["SEO", "Çok Dilli", "CMS", "Blog"]}
           />
         </div>
       </section>
@@ -589,39 +639,30 @@ export default function AronoLanding() {
   );
 }
 
-function ProjectShowcase({title, desc, features, image, reverse, aspectRatio = '16/9', objectPosition = 'center', objectFit = 'cover'}) {
+function ProjectCard({icon, color, category, title, desc, tags}) {
   return (
-    <div className={`grid md:grid-cols-2 gap-6 items-center ${reverse ? 'md:grid-flow-dense' : ''}`}>
-      <div className={reverse ? 'md:col-start-2' : ''}>
-        <div className="relative group rounded-2xl border border-white/10 overflow-hidden bg-[#0B1026] max-h-72 md:max-h-96" style={{aspectRatio}}>
-          <img 
-            src={image} 
-            alt={title}
-            className={`w-full h-full object-${objectFit}`}
-            style={{objectPosition, imageRendering: 'crisp-edges'}}
-            loading="eager"
-            decoding="sync"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.parentElement.innerHTML = '<div class="absolute inset-0 flex items-center justify-center"><div class="text-center p-6"><div class="text-xs text-zinc-400">Proje görseli buraya gelecek</div><div class="text-[10px] text-zinc-500 mt-1">' + image + '</div></div></div>';
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1026] via-transparent opacity-0 group-hover:opacity-100 transition-opacity"/>
-        </div>
-      </div>
+    <div className="group relative rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:bg-white/[0.04] hover:border-white/20 transition-all duration-300 overflow-hidden">
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{background: `linear-gradient(90deg, transparent, ${color}, transparent)`}}/>
       
-      <div className={reverse ? 'md:col-start-1 md:row-start-1' : ''}>
-        <h3 className="text-2xl md:text-3xl font-bold text-zinc-200">{title}</h3>
-        <p className="mt-3 text-sm md:text-base text-zinc-300 leading-relaxed">{desc}</p>
-        
-        <div className="mt-4 grid grid-cols-3 gap-3">
-          {features.map((feature, i) => (
-            <div key={i} className="flex items-center gap-2 p-2 rounded-lg bg-white/5 border border-white/10">
-              <div className="h-2 w-2 rounded-full bg-[#64748B]"/>
-              <span className="text-xs text-zinc-300 font-medium">{feature}</span>
-            </div>
-          ))}
+      <div className="flex items-start justify-between mb-4">
+        <div className="h-11 w-11 rounded-xl flex items-center justify-center border border-white/10" style={{background: `${color}15`, color}}>
+          {icon}
         </div>
+        <span className="text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-full border" style={{color, borderColor: `${color}30`, background: `${color}08`}}>
+          {category}
+        </span>
+      </div>
+
+      <h3 className="text-lg font-bold text-zinc-100 mb-2">{title}</h3>
+      <p className="text-sm text-zinc-400 leading-relaxed mb-5">{desc}</p>
+
+      <div className="flex flex-wrap gap-2">
+        {tags.map((tag, i) => (
+          <span key={i} className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-zinc-300">
+            {tag}
+          </span>
+        ))}
       </div>
     </div>
   );

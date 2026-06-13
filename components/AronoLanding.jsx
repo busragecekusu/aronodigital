@@ -269,51 +269,151 @@ export default function AronoLanding() {
 
       {/* Portfolio */}
       <section id="portfolio" className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-12 md:pb-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-zinc-200">Tamamladığımız Projeler</h2>
-          <p className="mt-3 text-base text-zinc-400 max-w-2xl mx-auto">
-            Farklı sektörlerde gerçekleştirdiğimiz başarılı projeler.
+        <div className="text-center mb-14">
+          <h3 className="text-sm font-bold tracking-widest text-zinc-400 uppercase mb-4">Referanslar</h3>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-5">
+            Tamamladığımız <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8]">Projeler</span>
+          </h2>
+          <p className="text-base text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+            Farklı sektörlerde teslim ettiğimiz, gerçek kullanıcılara hizmet veren projelerden seçkiler
           </p>
         </div>
-        
-        <div className="space-y-10">
-          <ProjectShowcase 
-            title="Yapay Zeka Destekli Butik Sistemi" 
-            desc="Türkiye'de faaliyet gösteren moda butikleri için yapay zeka destekli sanal deneme platformu. Prompt ile cansız mankene otomatik giydirme ve canlı manken üzerinde gerçek zamanlı görselleştirme özellikleri. AI tabanlı stil önerileri ve ürün kombinasyonları."
-            features={["AI Giydirme", "Prompt Sistemi", "Stil Önerileri"]}
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>}
+            color="#F59E0B"
+            category="Çocuk Platformu"
+            title="Masal ve Sesli Kitap Uygulaması"
+            desc="Çocuklar için interaktif masallar ve sesli kitaplar. Ebeveyn kontrolü, uyku modu ve okuma istatistikleri sunan eğitim platformu."
+            tags={["Sesli Kitap", "Eğitim", "Mobil Uygulama", "Ebeveyn Modu"]}
           />
-          
-          <ProjectShowcase 
-            title="Masal Web Sitesi" 
-            desc="Türkiye'deki çocuklar için interaktif masal platformu. Zengin içerik yönetim sistemi, kategori bazlı masal arşivi ve kullanıcı dostu arayüz. Ebeveyn kontrol paneli ve okuma istatistikleri ile kapsamlı bir dijital masal kütüphanesi."
-            features={["İçerik Yönetimi", "Kategoriler", "İstatistikler"]}
-            reverse
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>}
+            color="#10B981"
+            category="Yiyecek & İçecek"
+            title="Global Yemek Sipariş Uygulaması"
+            desc="Çoklu dil ve para birimi desteğiyle çalışan uluslararası yemek sipariş platformu. Canlı kurye takibi ve restoran değerlendirmeleri."
+            tags={["Canlı Takip", "Uluslararası", "Çok Dilli", "Mobil App"]}
           />
-          
-          <ProjectShowcase 
-            title="Emlak Platformu" 
-            desc="Türkiye'de büyük ölçekli gayrimenkul platformu. Harita entegrasyonu, gelişmiş filtreleme, favoriler ve anlık bildirimler. Yüksek performanslı arama altyapısı ile binlerce ilanı saniyeler içinde sıralama."
-            features={["5000+ İlan", "Harita API", "Admin Panel"]}
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>}
+            color="#0EA5E9"
+            category="Gayrimenkul"
+            title="Emlak & Konut Platformu"
+            desc="Kiralık ve satılık evler için harita entegrasyonlu arama motoru. Favoriye alma, ev sahibiyle anında mesajlaşma ve bildirimler."
+            tags={["Harita API", "Anlık Mesajlaşma", "Filtreleme", "Web & Mobil"]}
           />
-          
-          <ProjectShowcase 
-            title="Balıkçı Mobil Uygulaması" 
-            desc="Global ölçekte balıkçılar için konum tabanlı mobil uygulama. Hava durumu, deniz koşulları ve balık türü önerileri. Gerçek zamanlı API entegrasyonları ve offline mod ile kesintisiz kullanım deneyimi."
-            features={["1000+ İndirme", "Offline Mod", "Push Bildiri"]}
-            reverse
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+            color="#EC4899"
+            category="Medya & Eğlence"
+            title="Kısa Video & Sosyal Medya"
+            desc="TikTok ve Instagram Reels tarzı kısa video paylaşım platformu. Filtreler, müzik ekleme, canlı yayın ve beğeni sistemleri."
+            tags={["Video Akışı", "Canlı Yayın", "Filtreler", "Etkileşim"]}
           />
-          
-          <ProjectShowcase 
-            title="E-Ticaret Sistemi" 
-            desc="Global ölçekte tam donanımlı e-ticaret platformu. Ürün varyantları, stok yönetimi, ödeme entegrasyonu. Admin panelinde canlı satış analitiği, müşteri segmentasyonu ve sipariş takip sistemi ile kapsamlı online satış çözümü."
-            features={["Ödeme API", "Stok Takip", "Analitik"]}
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>}
+            color="#E11D48"
+            category="Sağlık"
+            title="Doktor Randevu Sistemi"
+            desc="Hastalara en uygun uzmanı bulup online veya yüz yüze randevu alma imkanı sunan platform. Online görüntülü danışmanlık eklentisi."
+            tags={["Görüntülü Görüşme", "Randevu", "Hasta Takibi", "Takvim"]}
           />
-          
-          <ProjectShowcase 
-            title="Berber Web Sitesi" 
-            desc="Hollanda'da faaliyet gösteren berber salonu için modern ve kullanıcı dostu web sitesi. Online randevu sistemi, hizmet tanıtımları ve galeri özellikleri ile müşteri deneyimini dijitalleştirdik. Responsive tasarım ile tüm cihazlarda mükemmel görünüm."
-            features={["Online Randevu", "Responsive", "Galeri"]}
-            reverse
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>}
+            color="#8B5CF6"
+            category="Seyahat"
+            title="Uluslararası Araç Kiralama"
+            desc="Avrupa genelinde havalimanı ve şehir içi rent-a-car işlemleri için çoklu döviz destekli araç rezervasyon uygulaması."
+            tags={["Rezervasyon", "Çoklu Para Birimi", "Seyahat", "B2C"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>}
+            color="#64748B"
+            category="Hobiler"
+            title="Balıkçı ve Hava Durumu Uygulaması"
+            desc="Amatör ve profesyonel balıkçılar için deniz koşulları, hava durumu ve konum tabanlı av haritası sunan mobil rehber."
+            tags={["GPS", "Hava Durumu", "Harita", "Topluluk"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>}
+            color="#06B6D4"
+            color="#0EA5E9"
+            category="Global E-Ticaret"
+            title="Global B2B Pazar Yeri"
+            desc="Tedarikçiler ve alıcılar için global ölçekli toptan satış platformu. Akıllı eşleştirme, güvenli ödeme ve lojistik entegrasyonu."
+            tags={["B2B", "Çoklu Kur", "Global Lojistik", "Tedarik Zinciri"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+            color="#8B5CF6"
+            category="Finans"
+            title="Uluslararası Ödeme Sistemi"
+            desc="Sınır ötesi para transferleri için güvenli ve hızlı ödeme geçidi. Blockchain entegrasyonu ve anlık kur dönüştürücü."
+            tags={["Fintech", "Blockchain", "Sınır Ötesi", "Güvenlik"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>}
+            color="#F59E0B"
+            category="İhracat"
+            title="E-İhracat Otomasyonu"
+            desc="Avrupa ve Amerika pazarına yönelik e-ihracat otomasyon yazılımı. Pazar yeri entegrasyonları, depo yönetimi ve otomatik faturalama."
+            tags={["Amazon API", "Depo Yönetimi", "Mikro İhracat"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>}
+            color="#E11D48"
+            category="Sosyal Medya"
+            title="Sosyal Fotoğraf Uygulaması"
+            desc="Instagram tarzı fotoğraf paylaşım platformu. Hikayeler, keşfet akışı, DM sistemi, canlı yayın ve etkileşim analitiği."
+            tags={["Hikayeler", "Canlı Yayın", "DM Sistemi", "React Native"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm14 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" /></svg>}
+            color="#6366F1"
+            category="Hizmet"
+            title="Dijital Menü & QR Kod Sistemi"
+            desc="Restoranlar ve kafeler için temassız dijital menü platformu. Özel QR kod oluşturucu, sipariş takibi ve çok dilli menü yönetimi."
+            tags={["QR Kod Oluşturucu", "Dijital Menü", "Sipariş API", "Temassız"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>}
+            color="#0EA5E9"
+            category="Tasarım"
+            title="Online Grafik & Afiş Tasarım Aracı"
+            desc="Kullanıcıların kolayca afiş, davetiye ve sosyal medya görseli yapabileceği web tabanlı platform. Hazır şablonlar ve sürükle-bırak editör."
+            tags={["Afiş Yapımı", "Sürükle-Bırak", "Şablonlar", "Kanvas"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>}
+            color="#10B981"
+            category="E-Ticaret"
+            title="Çoklu Satıcılı Pazaryeri (Marketplace)"
+            desc="Trendyol/Hepsiburada benzeri, birden fazla mağazanın satış yapabildiği gelişmiş e-ticaret platformu. Satıcı paneli, komisyon yönetimi ve sepet altyapısı."
+            tags={["Pazaryeri", "Satıcı Paneli", "Komisyon", "E-Ticaret"]}
+          />
+
+          <ProjectCard
+            icon={<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>}
+            color="#F97316"
+            category="Turizm"
+            title="Otel & Tur Rezervasyon Sistemi"
+            desc="Oteller ve seyahat acenteleri için geliştirilmiş akıllı rezervasyon yazılımı. Online ödeme, oda stok takibi, takvim yönetimi ve erken rezervasyon modülü."
+            tags={["Rezervasyon", "Oda Takibi", "Online Ödeme", "Takvim"]}
           />
         </div>
       </section>
@@ -328,16 +428,19 @@ export default function AronoLanding() {
 
         <div className="grid md:grid-cols-3 gap-6">
           <ServiceCard 
+            icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>}
             title="Backend Geliştirme"
             desc="Yüksek performanslı API'ler, güvenli veritabanı mimarisi ve ölçeklenebilir altyapı çözümleri"
             features={["REST & GraphQL API", "Veritabanı Tasarımı", "Mikroservis Mimarisi", "Güvenlik & Auth"]}
           />
           <ServiceCard 
+            icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>}
             title="Frontend Geliştirme"
             desc="Kullanıcı deneyimi odaklı, modern ve responsive arayüzler. Web ve mobil platformlar için"
             features={["Web Uygulamaları", "Mobil Uygulamalar", "Admin Panelleri", "UI/UX Tasarım"]}
           />
           <ServiceCard 
+            icon={<svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>}
             title="Full-Stack Çözümler"
             desc="Konsepten canlıya tüm süreç. Proje yönetimi, geliştirme, test ve deployment dahil"
             features={["Proje Yönetimi", "DevOps & CI/CD", "Bulut Altyapısı", "Bakım & Destek"]}
@@ -347,10 +450,9 @@ export default function AronoLanding() {
 
       {/* Contact */}
       <section id="contact" className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-12 md:pb-20">
-        <div className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#64748B]/5 to-[#475569]/5 overflow-hidden">
-          {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#0EA5E9]/5 to-transparent rounded-full blur-3xl"/>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#64748B]/5 to-transparent rounded-full blur-3xl"/>
+        <div className="relative rounded-2xl bg-[#1E293B] border border-slate-700/50 overflow-hidden shadow-xl">
+          {/* Subtle accent line on top */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-[#0EA5E9] opacity-40"/>
           
           <div className="relative grid md:grid-cols-2 gap-8 p-8 md:p-12">
             {/* Left side - Info */}
@@ -525,52 +627,60 @@ export default function AronoLanding() {
   );
 }
 
-function ProjectShowcase({title, desc, features, reverse}) {
+function ProjectCard({icon, color, category, title, desc, tags}) {
   return (
-    <div className="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.02] to-white/[0.01] p-6 md:p-8 hover:border-white/20 transition-all">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#64748B]/5 to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"/>
+    <div className="group relative flex flex-col h-full rounded-xl bg-[#1E293B] border border-slate-700/50 p-6 hover:bg-[#2A374D] transition-colors duration-300 overflow-hidden shadow-lg hover:shadow-xl">
+      {/* Sol tarafta ince renkli şerit vurgusu - Tek ve uyumlu marka rengi */}
+      <div className="absolute top-0 left-0 w-1 h-full opacity-40 group-hover:opacity-100 transition-opacity duration-300 bg-[#0EA5E9]"/>
       
-      <div className="relative">
-        <div className="flex items-start gap-4 mb-4">
-          <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#64748B]/20 to-[#475569]/20 border border-white/10 flex items-center justify-center flex-shrink-0">
-            <svg className="w-6 h-6 text-[#64748B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </div>
-          <div className="flex-1">
-            <h3 className="text-2xl md:text-3xl font-bold text-zinc-200">{title}</h3>
-          </div>
+      <div className="flex items-start justify-between mb-5">
+        <div className="h-12 w-12 flex-shrink-0 rounded-lg flex items-center justify-center bg-black/20 text-[#0EA5E9] group-hover:text-white transition-colors">
+          {icon}
         </div>
-        
-        <p className="text-sm md:text-base text-zinc-300 leading-relaxed mb-6">{desc}</p>
-        
-        <div className="flex flex-wrap gap-3">
-          {features.map((feature, i) => (
-            <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-              <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#64748B] to-[#0EA5E9]"/>
-              <span className="text-xs text-zinc-300 font-medium">{feature}</span>
-            </div>
-          ))}
-        </div>
+        <span className="text-[10px] font-semibold tracking-wider uppercase px-3 py-1.5 rounded-md bg-black/20 text-zinc-400 whitespace-nowrap">
+          {category}
+        </span>
+      </div>
+      
+      {/* Sabit 2 satır yüksekliği, böylece tüm kartlarda açıklamalar aynı hizada başlar */}
+      <h3 className="text-lg font-bold text-zinc-100 mb-3 line-clamp-2 h-[56px] leading-tight">
+        {title}
+      </h3>
+      
+      {/* Sabit 4 satır yüksekliği, açıklamaların eşit yer kaplaması sağlanır */}
+      <p className="text-sm text-zinc-400 leading-relaxed mb-6 line-clamp-4 h-[84px]">
+        {desc}
+      </p>
+      
+      {/* Butonların/Etiketlerin bulunduğu alanın sabit kalması için */}
+      <div className="flex flex-wrap gap-2 mt-auto content-start h-[68px]">
+        {tags.map((tag, i) => (
+          <span key={i} className="text-[11px] font-medium px-2.5 py-1.5 rounded bg-black/20 text-zinc-300 whitespace-nowrap">
+            {tag}
+          </span>
+        ))}
       </div>
     </div>
   );
 }
 
-function ServiceCard({title, desc, features}) {
+function ServiceCard({icon, title, desc, features}) {
   return (
-    <div className="group relative rounded-xl border border-white/10 bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-all">
-      <div className="relative">
-        <div className="mb-4 inline-flex p-2.5 rounded-lg bg-gradient-to-br from-[#64748B]/20 to-[#475569]/20 border border-white/10">
-          <div className="h-7 w-7 rounded-lg bg-gradient-to-br from-[#64748B] to-[#475569]"/>
+    <div className="group relative flex flex-col h-full rounded-xl bg-[#1E293B] border border-slate-700/50 p-6 hover:bg-[#2A374D] transition-colors duration-300 overflow-hidden shadow-lg hover:shadow-xl">
+      {/* Sol tarafta ince renkli şerit vurgusu */}
+      <div className="absolute top-0 left-0 w-1 h-full opacity-40 group-hover:opacity-100 transition-opacity duration-300 bg-[#0EA5E9]"/>
+      
+      <div className="relative flex flex-col flex-grow">
+        <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-black/20 text-[#0EA5E9] group-hover:text-white transition-colors">
+          {icon}
         </div>
-        <h4 className="text-xl font-bold mb-2 text-zinc-200">{title}</h4>
-        <p className="text-sm text-zinc-400 mb-4">{desc}</p>
-        <ul className="space-y-1.5">
+        <h4 className="text-lg font-bold mb-2.5 text-zinc-100">{title}</h4>
+        <p className="text-sm text-zinc-400 mb-6 flex-grow leading-relaxed">{desc}</p>
+        
+        <ul className="space-y-2 mt-auto">
           {features.map((feature, i) => (
-            <li key={i} className="flex items-center gap-2 text-xs text-zinc-300">
-              <div className="h-1.5 w-1.5 rounded-full bg-[#64748B]"/>
+            <li key={i} className="flex items-center gap-2 text-xs font-medium text-zinc-300">
+              <div className="h-1.5 w-1.5 rounded-full bg-[#0EA5E9]"/>
               {feature}
             </li>
           ))}
